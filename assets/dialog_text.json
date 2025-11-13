@@ -1,0 +1,18 @@
+[
+  {
+    "speaker": "Joe",
+    "text": "How are you today?"
+  },
+  {
+    "speaker": "Jane",
+    "text": "I'm fine thank you, and you?"
+  },
+  {
+    "speaker": "Joe",
+    "text": "That's great. How's the weather today?"
+  },
+  {
+    "speaker": "Jane",
+    "text": "It's cloudy."
+  }
+]
