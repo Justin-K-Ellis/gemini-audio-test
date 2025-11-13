@@ -30,9 +30,6 @@ dialog_text: list[dict[str, str]] = [
 
 def main():
     get_monolog("hi there")
-    # dialog_prompt = """TTS the following conversation between Joe and Jane:
-    #      Joe: How's it going today Jane?
-    #      Jane: Not too bad, how about you?"""
     # get_dialog(dialog_prompt)
     # dialog_prompt = create_dialog_prompt(dialog_text)
     # print(dialog_prompt)
