@@ -2,16 +2,19 @@ from google import genai
 from google.genai import types
 
 from .wavefile import wave_file
+from utils.Dialog import Dialog
 
-def get_dialog(text: str, index: int = 0, speaker1 = "Joe", speaker2 = "Jane"):
+def get_dialog(dialog: Dialog, index: int = 0):
     """Send prompt to Gemini api and save audio to current directory.
     Creates a dialog."""
     client = genai.Client()
+    speaker1_voice = "Kore" if dialog.speaker1_gen == "female" else "Puck"
+    speaker2_voice = "Kore" if dialog.speaker2_gen == "female" else "Puck"
 
     prompt = f"""
-    TTS the following conversation between {speaker1} and {speaker2}:
+    TTS the following conversation between {dialog.speaker1} and {dialog.speaker2}:
 
-    {text}
+    {dialog.text}
     """
 
     print(f"Creating audio file {index}...")
@@ -25,18 +28,18 @@ def get_dialog(text: str, index: int = 0, speaker1 = "Joe", speaker2 = "Jane"):
                 multi_speaker_voice_config=types.MultiSpeakerVoiceConfig(
                     speaker_voice_configs=[
                     types.SpeakerVoiceConfig(
-                        speaker=speaker1,
+                        speaker=dialog.speaker1,
                         voice_config=types.VoiceConfig(
                             prebuilt_voice_config=types.PrebuiltVoiceConfig(
-                                voice_name='Kore',
+                                voice_name=speaker1_voice,
                             )
                         )
                     ),
                     types.SpeakerVoiceConfig(
-                        speaker=speaker2,
+                        speaker=dialog.speaker2,
                         voice_config=types.VoiceConfig(
                             prebuilt_voice_config=types.PrebuiltVoiceConfig(
-                                voice_name='Puck',
+                                voice_name=speaker2_voice,
                             )
                         )
                     ),
