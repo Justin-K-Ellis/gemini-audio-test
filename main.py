@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 from lib.createdialogprompt import create_dialog_prompt
 from lib.getmonolog import get_monolog
-from lob.getdialog import get_dialog
+from lib.getdialog import get_dialog
 
 load_dotenv()
 
@@ -29,7 +29,7 @@ dialog_text: list[dict[str, str]] = [
 
 
 def main():
-    get_monolog("hi there")
+    # get_monolog("hi there")
     # get_dialog(dialog_prompt)
     # dialog_prompt = create_dialog_prompt(dialog_text)
     # print(dialog_prompt)
