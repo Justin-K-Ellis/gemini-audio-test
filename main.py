@@ -20,7 +20,8 @@ Tom: Good idea. After that, we can drink hot chocolate inside.
 """
 
 dialog_texts: list[Dialog] = [
-    Dialog(dialog_text1, speaker1="Man", speaker1_gen="male", speaker2="Woman", speaker2_gen="female")
+    Dialog(dialog_text1, speaker1="Man", speaker1_gen="male", speaker2="Woman", speaker2_gen="female"),
+    Dialog(dialog_text2, speaker1="Tom", speaker1_gen="male", speaker2="Lisa", speaker2_gen="female")
 ]
 
 

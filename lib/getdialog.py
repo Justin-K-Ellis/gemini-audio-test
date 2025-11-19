@@ -4,18 +4,28 @@ from google.genai import types
 from .wavefile import wave_file
 from utils.Dialog import Dialog
 
-def get_dialog(dialog: Dialog, index: int = 0):
+def get_dialog(dialog: Dialog, index: int = 0) -> None:
     """Send prompt to Gemini api and save audio to current directory.
     Creates a dialog."""
     client = genai.Client()
-    speaker1_voice = "Kore" if dialog.speaker1_gen == "female" else "Puck"
-    speaker2_voice = "Kore" if dialog.speaker2_gen == "female" else "Puck"
+    speaker1_voice = "Zephyr" if dialog.speaker1_gen == "female" else "Puck"
+    speaker2_voice = "Zephyr" if dialog.speaker2_gen == "female" else "Puck"
 
     prompt = f"""
     TTS the following conversation between {dialog.speaker1} and {dialog.speaker2}:
 
     {dialog.text}
     """
+
+    # print(dialog.text)
+    # print(dialog.speaker1)
+    # print(dialog.speaker1_gen)
+    # print(speaker1_voice)
+    # print("-" * 10)
+    # print(dialog.speaker2)
+    # print(dialog.speaker2_gen)
+    # print(speaker2_voice)
+    # print("=" * 10)
 
     print(f"Creating audio file {index}...")
     try:
@@ -50,7 +60,7 @@ def get_dialog(dialog: Dialog, index: int = 0):
         )
 
         data = response.candidates[0].content.parts[0].inline_data.data
-        file_name=f'dialog_{index}.wav'
+        file_name=f'dialog_{index + 10}.wav'
         wave_file(f"./output/{file_name}", data)
         print(f"Dialog {index} audio created and saved!")
 
