@@ -1,5 +1,3 @@
-from google import genai
-from google.genai import types
 from dotenv import load_dotenv
 
 from lib.createdialogprompt import create_dialog_prompt
@@ -8,32 +6,24 @@ from lib.getdialog import get_dialog
 
 load_dotenv()
 
-dialog_text: list[dict[str, str]] = [
-    {
-        "speaker": "Joe",
-        "text": "How are you today?"
-    },
-    {
-        "speaker": "Jane",
-        "text": "I'm fine thank you, and you?"
-    },
-    {
-        "speaker": "Joe",
-        "text": "That's great. How's the weather today?"
-    },
-    {
-        "speaker": "Jane",
-        "text": "It's cloudy."
-    }
-]
+dialog_text1 = """
+Man: What do you want to have for dinner today? Pasta?
+Woman: How about curry? 
+Man: I had that for lunch. 
+"""
+
+dialog_text2 = """
+Tom: Look! It's snowing a lot today!
+Lisa: Yeah! Let's make a snowman outside.
+Tom: Good idea. After that, we can drink hot chocolate inside.
+"""
+
+dialog_texts: list[str] = [dialog_text1, dialog_text2]
 
 
 def main():
-    # get_monolog("hi there")
-    # get_dialog(dialog_prompt)
-    # dialog_prompt = create_dialog_prompt(dialog_text)
-    # print(dialog_prompt)
-    # get_dialog(dialog_prompt)
+    for index, dialog in enumerate(dialog_texts):
+        get_dialog(dialog, index=index)
 
 
 if __name__ == "__main__":
