@@ -17,15 +17,15 @@ def get_dialog(dialog: Dialog, index: int = 0) -> None:
     {dialog.text}
     """
 
-    # print(dialog.text)
-    # print(dialog.speaker1)
-    # print(dialog.speaker1_gen)
-    # print(speaker1_voice)
-    # print("-" * 10)
-    # print(dialog.speaker2)
-    # print(dialog.speaker2_gen)
-    # print(speaker2_voice)
-    # print("=" * 10)
+    print(dialog.text)
+    print(dialog.speaker1)
+    print(dialog.speaker1_gen)
+    print(speaker1_voice)
+    print("-" * 10)
+    print(dialog.speaker2)
+    print(dialog.speaker2_gen)
+    print(speaker2_voice)
+    print("=" * 10)
 
     print(f"Creating audio file {index}...")
     try:
@@ -60,7 +60,7 @@ def get_dialog(dialog: Dialog, index: int = 0) -> None:
         )
 
         data = response.candidates[0].content.parts[0].inline_data.data
-        file_name=f'dialog_{index + 10}.wav'
+        file_name=f'dialog_{index}.wav'
         wave_file(f"./output/{file_name}", data)
         print(f"Dialog {index} audio created and saved!")
 
