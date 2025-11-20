@@ -8,8 +8,8 @@ load_dotenv()
 def main():
     monologs_path = "./input/monologs.csv"
     monologs = read_in_monolog_csv(filepath=monologs_path)
-    for index, monolog in enumerate(monologs):
-        get_monolog(monolog=monolog, index=index)
+    for monolog in monologs:
+        get_monolog(monolog=monolog)
 
 
 if __name__ == "__main__":
